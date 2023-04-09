@@ -1,0 +1,58 @@
+<div id="buttons__shop">
+  <button class="btn btn-primary d-inline-block text-left" onclick="location.href='/user/logout'">logout</button>
+  <i id="shopping__car" class="fa-solid fa-cart-shopping mt-3"></i>
+</div>
+{{#if products.payload}}
+
+<h1 class="text-center">Products | {{email}} | {{admin}}</h1>
+
+{{!-- <div class="dropdown align-self-end me-5">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Filter
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Order</a></li>
+    <li><a class="dropdown-item" href="#">Category</a></li>
+    <li><a class="dropdown-item" href="#">Status</a></li>
+  </ul>
+</div> --}}
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {{#if products.prevLink}}
+    <li class="page-item">
+      <a class="page-link" href='{{products.prevLink}}' aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {{/if}}
+    <li class="page-item"><a class="page-link" href="#">{{products.page}}</a></li>
+    {{#if products.nextLink}}
+    <li class="page-item">
+      <a class="page-link" href='{{products.nextLink}}' aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    {{/if}}
+  </ul>
+</nav>
+
+<div class="container mt-5 d-flex flex-wrap gap-2 justify-content-center">
+  {{#each products.payload}}
+  <section class="card" style="width: 18rem;">
+    <a href="/api/products/{{_id}}"><img src='{{thumbnail}}' class="card-img-top" alt='{{title}}'></a>
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">{{title}}</h5>
+      <span class="card-text">{{des}}</span>
+      <span class="card-text">${{price}}</span>
+      <span class="card-text">Category: {{category}}</span>
+      {{#if status}}
+        <a href="#" class="btn btn-primary product_to_cart_button" data-id='{{_id}}'>Add to Cart</a>
+        {{else}}
+        <a href="#" class="btn btn-primary product_to_cart_button disabled" data-id='{{_id}}'>Add to Cart</a>
+      {{/if}}
+    </div>
+  </section>
+  {{/each}}
+</div>
+{{/if}}

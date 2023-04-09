@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lora', serif;
+    transition: all .3s ease-in-out;
+    text-decoration: none;
+}
+body{
+    background-color: #12121277;
+}
+
+#shopping__car{
+    color: white;
+    font-size: 2rem;
+    right: 3rem;
+    cursor: pointer;
+}
+
+#buttons__shop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    margin-right: 5rem;
+}
+
+#shopping__car:hover{
+    transform: scale(1.1);
+}
+
+.product_to_cart_button:focus{
+    background-color: gray !important;
+}

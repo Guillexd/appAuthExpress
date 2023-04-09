@@ -1,0 +1,19 @@
+{{#if product}}
+<h1>Product: {{product.title}}</h1>
+  <section class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">Description: {{product.des}}</p>
+      <p class="card-text">Price: {{product.price}}</p>
+      <p class="card-text"><small class="text-muted">Category: {{product.category}}</small></p>
+      <p class="card-text"><small class="text-muted">Stock: {{product.stock}}</small></p>
+      {{#if product.status}}
+        <p class="card-text"><small class="text-muted">Disponible</small></p>
+        <a href="#" class="btn btn-primary btn-lg product_to_cart_button" data-id='{{product._id}}'>Add to Cart</a>
+        {{else}}
+        <p class="card-text"><small class="text-muted">No disponible</small></p>
+      {{/if}}
+    </div>
+    <img src='{{product.thumbnail}}' class="card-img-bottom" alt='{{product.title}}'>
+  </section>
+{{/if}}
